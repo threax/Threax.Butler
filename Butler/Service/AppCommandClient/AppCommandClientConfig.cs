@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Threax.AspNetCore.Halcyon.Client;
+using Threax.AspNetCore.Halcyon.Client.OpenIdConnect;
 
 namespace Butler.Service.AppCommand.Client
 {

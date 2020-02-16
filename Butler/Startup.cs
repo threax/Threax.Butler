@@ -105,6 +105,7 @@ namespace Butler
             };
 
             services.AddConventionalHalcyon(halOptions);
+            services.AddHalcyonClient();
 
             services.AddExceptionErrorFilters(new ExceptionFilterOptions()
             {
@@ -113,8 +114,12 @@ namespace Butler
 
             services.AddThreaxIdServerClient(o =>
             {
-                o.GetSharedClientCredentials = s => Configuration.Bind("SharedClientCredentials", s);
                 Configuration.Bind("IdServerClient", o);
+            })
+            .SetupHttpClientFactoryWithClientCredentials(o =>
+            {
+                Configuration.Bind("IdServerClient", o);
+                o.GetSharedClientCredentials = s => Configuration.Bind("SharedClientCredentials", s);
             });
 
             services.AddCommandClient(o =>
