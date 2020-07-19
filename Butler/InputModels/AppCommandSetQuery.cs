@@ -14,6 +14,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Butler.InputModels
 {
     [HalModel]
+    [CacheEndpointDoc]
     public partial class AppCommandSetQuery : PagedCollectionQuery, IAppCommandSetQuery
     {
         /// <summary>

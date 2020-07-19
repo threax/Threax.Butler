@@ -12,6 +12,7 @@ using Threax.AspNetCore.Halcyon.Ext.ValueProviders;
 namespace Butler.InputModels 
 {
     [HalModel]
+    [CacheEndpointDoc]
     public partial class AppCommandSetInput : IAppCommandSet
     {
         [Required(ErrorMessage = "Name must have a value.")]
