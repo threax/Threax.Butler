@@ -51,6 +51,8 @@ namespace Butler
             Configuration.Bind("AppConfig", appConfig);
             Configuration.Bind("ClientConfig", clientConfig);
             Configuration.Bind("Cors", corsOptions);
+
+            clientConfig.BearerCookieName = $"{authConfig.ClientId}.BearerToken";
         }
 
         public SchemaConfigurationBinder Configuration { get; }
@@ -90,6 +92,10 @@ namespace Butler
                 o.ConfigureIdServerMetadataJwtOptions = jwtOpt =>
                 {
                     jwtOpt.Audience = "Threax.IdServer";
+                };
+                o.CustomizeCookies = cookOpt =>
+                {
+                    cookOpt.BearerHttpOnly = false;
                 };
             });
 
