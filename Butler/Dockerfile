@@ -6,11 +6,11 @@ FROM threax/build-dotnet:3.1.0 AS build
 WORKDIR /src
 COPY . .
 WORKDIR /src/Butler
-RUN --mount=type=cache,target=/src/AppTemplate/node_modules,id=threax-build-apptemplate npm install
+RUN --mount=type=cache,target=/src/AppTemplate/node_modules,id=threax-build-butler npm install
 RUN --mount=type=cache,target=/root/.nuget/packages,id=threax-build-dotnet-310-nuget dotnet restore Butler.csproj
 RUN --mount=type=cache,target=/root/.nuget/packages,id=threax-build-dotnet-310-nuget dotnet build Butler.csproj -c Release -o /app
-RUN --mount=type=cache,target=/src/AppTemplate/node_modules,id=threax-build-apptemplate npm run clean
-RUN --mount=type=cache,target=/src/AppTemplate/node_modules,id=threax-build-apptemplate npm run build
+RUN --mount=type=cache,target=/src/AppTemplate/node_modules,id=threax-build-butler npm run clean
+RUN --mount=type=cache,target=/src/AppTemplate/node_modules,id=threax-build-butler npm run build
 
 FROM build AS publish
 RUN --mount=type=cache,target=/root/.nuget/packages,id=threax-build-dotnet-310-nuget dotnet publish Butler.csproj -c Release -o /app
