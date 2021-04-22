@@ -14,7 +14,6 @@ using Threax.AspNetCore.Halcyon.Ext.ValueProviders;
 namespace Butler.ViewModels 
 {
     [HalModel]
-    [CacheEndpointDoc]
     [HalSelfActionLink(typeof(AppCommandSetsController), nameof(AppCommandSetsController.Get))]
     [HalActionLink(typeof(AppCommandSetsController), nameof(AppCommandSetsController.Execute))]
     [HalActionLink(typeof(AppCommandSetsController), nameof(AppCommandSetsController.Update))]
