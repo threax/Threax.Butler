@@ -1,10 +1,10 @@
-import * as standardCrudPage from 'hr.widgets.StandardCrudPage';
-import * as startup from 'clientlibs.startup';
-import * as deepLink from 'hr.deeplink';
-import { AppCommandSetCrudInjector } from 'clientlibs.AppCommandSetCrudInjector';
-import { CrudTableRowControllerExtensions, CrudTableRowController } from 'hr.widgets.CrudTableRow';
-import * as controller from 'hr.controller';
-import * as client from 'clientlibs.ServiceClient';
+import * as standardCrudPage from 'htmlrapier.widgets/src/StandardCrudPage';
+import * as startup from 'Client/Libs/startup';
+import * as deepLink from 'htmlrapier/src/deeplink';
+import { AppCommandSetCrudInjector } from 'Client/Libs/AppCommandSetCrudInjector';
+import { CrudTableRowControllerExtensions, CrudTableRowController } from 'htmlrapier.widgets/src/CrudTableRow';
+import * as controller from 'htmlrapier/src/controller';
+import * as client from 'Client/Libs/ServiceClient';
 
 class CommandSetRow extends CrudTableRowControllerExtensions {
     public static get InjectorArgs(): controller.InjectableArgs {
